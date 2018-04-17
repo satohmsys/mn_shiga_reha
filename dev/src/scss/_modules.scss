@@ -458,21 +458,19 @@ body{
 		}
 	}
 }
-	.isLoaded .loadingAnim{
-		transform: translateZ( -5px );
+.isLoaded .loadingAnim{
+	transform: translateZ( -5px );
+	opacity: 0;
+	transition-delay: 0.5s;
+	overflow: hidden;
+	
+	&__text:before,
+	&__text:after{
+		// animation: none;
 		opacity: 0;
-		transition-delay: 0.5s;
-		overflow: hidden;
-		
-		&__text:before,
-		&__text:after{
-			// animation: none;
-			opacity: 0;
-			// transform: scale( 2 );
-		}
+		// transform: scale( 2 );
 	}
-
-
+}
 
 
 

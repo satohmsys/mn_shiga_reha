@@ -6,3 +6,22 @@
 //include by style.scss
 
 /////////////////////
+
+.section__index{
+	position: relative;
+	line-height: 1;
+	letter-spacing: 0.2em;
+
+	.en{
+		color: #f4f4f4;
+		font-size: 10em;
+		font-family: $fontFamily_bodoniSans_b;		
+	}
+
+	.ja{
+		position: absolute;
+		bottom: 0;
+		font-weight: bold;
+		
+	}
+}

@@ -4,11 +4,105 @@
 
 ************************/
 
+/**************
+
+// module
+
+****************/
+
+.contactBox
+{
+	margin-top: 60px;
+	padding: 50px;
+	border: solid 1px $border;
+	
+	&__index{
+		margin-bottom: 20px;
+		font-weight: bold;
+	}	
+
+	&__text{
+		margin-bottom: 20px;
+	}	
+
+	&__content{
+		
+	}
+
+	&__tel{
+		font-size: 2.5em;
+		color: $green_dark;
+		letter-spacing: 0.1em;
+		font-family: $fontFamily_bodoniSans_b;	
+			
+		&:before{
+			content:  " ";
+			width: 30px;
+			height: 1em;
+			right: 5px;
+			display: inline-block;
+			vertical-align: sub;						
+			background: url( ../img/reha/icon-phone.svg ) center center no-repeat;
+			background-size: 100% auto;				
+		}
+	}
+
+	&__telnum{
+		line-height: 1;
+	}
+}
+
+
+.section{
+
+	margin-bottom: 200px;
+	
+
+	&.-box{
+		position: relative;
+		padding-right: 50px;
+		padding-bottom: 5em;
+		padding-left: 50px;
+		
+		.wrap{
+			position: relative;
+			z-index: 1;
+		}
+
+		.section__content{
+			max-width: 770px;
+		}
+		
+		&:after{
+			content:  "";
+			width: 90%;
+			height: calc(100% - 5em);
+			
+			margin-right: auto;
+			margin-left: auto;
+			position: absolute;
+			// top: 5em;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: #fafafa;
+			display: block;
+		}
+	}
+}
+
+
+
+/**************
+
+// style
+
+****************/
+
 
 .mainvisual{
-
-	padding-top: 188px;
-	
+	margin-bottom: 100px;
+	padding-top: 188px;	
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -113,3 +207,270 @@
 		}
 	}
 }
+
+
+
+/**************
+
+// intro
+
+****************/
+
+.introSection
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	
+	&.-rtol{
+		flex-direction: row-reverse;
+		
+		.introSection__img{
+			right: auto;
+			left: 0;
+		}
+	}
+	
+	.section{
+		&__index{
+			margin-bottom: -20px;
+		}
+	}
+	
+	&__text{
+		width: 40%;
+	}
+
+
+	&__img{
+		width: 50%;
+		position: absolute;
+		right: 0;
+	}
+	
+
+
+	&__child{
+			margin-bottom: 60px;
+			
+		&__index{
+			margin-bottom: 35px;
+			font-weight: bold;			
+		}
+
+		p:not( :last-child ){
+			margin-bottom: 35px;
+		}
+	}
+}
+
+
+
+
+/**************
+
+// programs
+
+****************/
+
+.section--programs{
+	.section__index{
+		margin-top: -0.5em;
+	}
+}
+
+
+
+
+/**************
+
+// doctors
+
+****************/
+
+.section--doctors{
+
+	.section__index{
+		margin-bottom: 40px;
+	}
+
+	.doctor{
+			display: flex;
+			flex-direction: row;	
+			justify-content: space-between;
+			align-items: flex-start;
+			
+			&:not( :last-child ){
+				margin-bottom: 100px;
+			}
+			
+			&__left{
+				width: 200px;
+				margin-right: 50px;
+				flex-shrink: 0;
+				transition: transition(all, 1s );
+				
+				.doctorImage{
+					line-height: 1;
+					margin-bottom: 20px;
+				}
+				
+				.doctorName{
+					margin-bottom: 10px;
+					letter-spacing: 0.1em;
+					font-size: $small;
+					font-weight: bold;
+					
+					.ja{
+					}
+					
+					&:before{
+						content: attr( data-en );
+						margin-bottom: 5px;
+						line-height: 1.1;
+						display: block;
+						font-weight: lighter;
+						font-family: $fontFamily_bodoniSans_b;
+						color: $green;
+						opacity: 0.25;
+						font-size: 2em;
+  						white-space: pre;						
+					}
+				}
+
+				.doctorWork{
+					font-size: $xsmall;
+				}
+			}
+
+			&__right{
+				width: 100%;
+				transition: transition(all, 1s );
+				transition-delay: 0.25s;
+				
+				.doctorDetail{
+					&__row{
+						width: 100%;
+						padding-top: 25px;
+						padding-bottom: 25px;
+						display: table;
+						position: relative;
+						
+						&:not(:last-child):after{
+							content: " ";
+							width: 100%;
+							height: 1px;
+							display: block;
+							position: absolute;
+							right: 0;
+							bottom: 0;
+							left: 0;
+							background-color: $border;
+						}
+					}
+					&__th{
+						width: 155px;
+						padding-right: 20px;
+						font-weight: bold;
+						display: table-cell;
+					}
+					&__td{
+						display: table-cell;
+						
+					}
+				}
+			}
+	}
+
+	.doctor--imai{
+		.doctorName:before{
+			content: "Shinji\AImai";
+		}
+	}
+	.doctor--kodama{
+		.doctorName:before{
+			content: "Naruhito\AKodama";
+		}
+	}
+	.doctor--kawaguchi{
+		.doctorName:before{
+			content: "Tamirow\AKawaguchi";
+		}
+	}	
+	.doctor--nakajima{
+		.doctorName:before{
+			content: "Ryo\ANakajima";
+		}
+	}			
+}
+
+
+
+/**************
+
+// access
+
+****************/
+.section--access{
+		position: relative;
+		
+		table{
+			margin-bottom: 30px;
+		}
+		
+		li:not( :last-child ){
+			margin-bottom: 10px;
+		}
+
+		.aColumn{
+			
+			@include break( tab ){
+				&__row{
+					margin-bottom: 20px;
+				}
+			}			
+		}
+
+
+		.-introduction{
+			.aTable{
+				tr{
+					width: 100%;
+					border-bottom: solid $border 1px;
+					
+					&:first-child th,
+					&:first-child td{
+						padding-top: 0;
+					}
+				}			
+			}
+		}
+
+
+		.-byBus{
+			.aList{
+				margin-bottom: 30px;
+				// @include break( tab ){
+				// 	margin-bottom: 10px;
+				// }				
+			}
+		}
+
+
+		.-byCar{
+			&__row:first-child{
+				@include break( tab ){
+					overflow: hidden;
+				}				
+			}
+
+			iframe{
+				height: 300px;
+				
+				@include break( tab ){
+					width: 100%;
+					height: 200px;
+				}					
+			}
+		}
+	}	
