@@ -1,0 +1,115 @@
+/************************
+
+// top
+
+************************/
+
+
+.mainvisual{
+
+	padding-top: 188px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	position: relative;
+	
+	&:before{
+		content: " ";
+		width: 100%;
+		height: 80%;
+		max-height: 700px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		transition: transition();		
+		background-color: $green;
+	}
+	
+	&__wrap{
+		width: 90%;
+		max-width: 1100px;
+		margin-right: auto;
+		margin-left: auto;
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		right: 0;
+		bottom: 50%;
+		left: 50%;
+		transform: translateY( -50% ) translateX( -50% );
+	}
+
+	&__copy{
+		letter-spacing: 0.2em;
+		font-size: $xlarge;
+		font-weight: bold;
+	}
+
+	&__name{
+		margin-top: 30px;
+		color: $green_dark;
+		font-weight: bold;
+		letter-spacing: 0.2em;
+	}
+
+
+	&__img{
+		z-index: 1;
+		max-width: percentage( 1036 / 1366 );
+		position: relative;
+		
+		&__enTitle{
+			line-height: 0.95;
+			position: absolute;
+			mix-blend-mode: overlay;
+			display: block;
+			transform: rotate( 90deg );
+			position: absolute;
+			top: 40px;
+			right: 0;
+			text-align: left;
+			color: #fff;
+			font-family: $fontFamily_bodoniSans_bl;
+			font-size: 76px;
+			letter-spacing: 0.1em;
+		}
+	}
+
+
+	&__scroll{
+		width: 90%;
+		max-width: 1100px;
+		height: 60px;
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		position: absolute;
+		right: 0;
+		left: 0;
+		bottom: calc( 20% - 30px );
+		
+		&:after,
+		&:before{
+			content: " ";
+			display: block;
+			width: 1px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			
+		}
+		&:after{
+			height: 100%;
+			background-color: $green;
+		}
+		&:before{
+			height: 50%;
+			background-color: #fff;
+			z-index: 1;
+			
+			animation: scroll 2s ease-in 0s infinite normal;
+		}
+	}
+}

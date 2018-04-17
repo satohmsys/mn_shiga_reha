@@ -1,0 +1,34 @@
+<% 
+	include( '_include/_function.ejs' );
+	$path = './';
+	$active = 'top';
+%>
+<!DOCTYPE html>
+<html>
+<head>
+	<%- include( '_include/head.ejs' ); %>
+</head>
+<body class="home">
+	<%- include( '_include/header.ejs' ); %>
+	<section class="mainvisual">
+		<div class="mainvisual__wrap">
+			<h1 class="mainvisual__copy">
+				<span>未来のリハビリテーション医学に貢献する</span><br>
+				<span>多様性のある教育プログラム</span>
+			</h1>
+			<h2 class="mainvisual__name">
+				滋賀医科大学 リハビリテーション科
+			</h2>
+		</div>
+		<figure class="mainvisual__img">
+			<img src="<%- $path %>../img/reha/reha-mv.jpg" alt="">
+			<figcaption class="mainvisual__img__enTitle">
+				Shiga<br>University<br>of<br>Medical<br>Science
+			</figcaption>
+		</figure>
+		<i class="mainvisual__scroll"></i>
+	</section>
+
+	<%- include( '_include/footer.ejs' ); %>
+</body>
+</html>
