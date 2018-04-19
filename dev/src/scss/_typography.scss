@@ -11,17 +11,47 @@
 	position: relative;
 	line-height: 1;
 	letter-spacing: 0.2em;
+	
+	.ja,
+	.en span{
+		opacity: 0;
+		transform: translateY( 20px );
+		transition: transition( all, 0.8s );	
+		
+		will-change: filter, transform;	
+	}
 
 	.en{
 		color: #f4f4f4;
 		font-size: 10em;
 		font-family: $fontFamily_bodoniSans_b;		
+		letter-spacing: 0.1em;
+	}
+	.en span{
+		display: inline-block;
+		opacity: 0;
+		transform: scale( 0.9 ) translateY( 30px );
+		transition: transition( all, 0.8s );
+
+		@for $i from 1 through 12 {
+			&:nth-child( #{$i} ){
+				transition-delay: #{ 0.1 * $i + 0.1}s;
+			}
+		}
 	}
 
 	.ja{
 		position: absolute;
 		bottom: 0;
-		font-weight: bold;
-		
+		font-weight: bold;	
+	}
+
+
+}
+.-on .section__index{
+	.ja,
+	 .en span{
+		opacity: 1;		
+		transform: scale( 1 ) translateY( 00px );
 	}
 }

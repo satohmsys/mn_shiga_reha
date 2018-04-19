@@ -35,15 +35,18 @@
 		letter-spacing: 0.1em;
 		font-family: $fontFamily_bodoniSans_b;	
 			
-		&:before{
+		a:before{
 			content:  " ";
-			width: 30px;
-			height: 1em;
-			right: 5px;
+			line-height: 1;
+			width: 20px;
+			height: 0.8em;
+			margin-right: 10px;
 			display: inline-block;
-			vertical-align: sub;						
-			background: url( ../img/reha/icon-phone.svg ) center center no-repeat;
-			background-size: 100% auto;				
+			vertical-align: middle;	
+			position: relative;
+			bottom: 4px;					
+			background: url( ../img/reha/icon-phone-green.svg ) center center no-repeat;
+			background-size: auto 100%;				
 		}
 	}
 
@@ -57,6 +60,12 @@
 
 	margin-bottom: 200px;
 	
+	&.js-effect{
+		transform: translateY( 50px );
+	}
+	&.-on.js-effect{
+		transform: translateY( 0px );		
+	}
 
 	&.-box{
 		position: relative;
@@ -76,7 +85,9 @@
 		&:after{
 			content:  "";
 			width: 90%;
-			height: calc(100% - 5em);
+			height: 0;
+			transform: translateY( 30px );
+			transition: transition(all, 2s);
 			
 			margin-right: auto;
 			margin-left: auto;
@@ -85,10 +96,144 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background-color: #fafafa;
+			background-color: #fcfcfc;
 			display: block;
 		}
 	}
+
+	&.-on.-box:after{
+		transform: translateY( 0px );		
+		height: calc(100% - 5em);
+
+	}
+
+
+	&__content{
+		letter-spacing: 0.05em;
+	}
+
+
+	.section__child{
+		margin-top: 45px;
+		margin-bottom: 45px;
+			
+		&__index{
+			@extend %indexStyle_b;
+		}
+
+		@include break( tab ){
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}		
+	}
+}
+
+
+//////// check mark list
+.aList{
+	&.-check{
+		li{
+			display: block;
+			&:before{
+				content: "";
+				width: 16px;
+				height: 9px;
+				margin-right: 8px;
+				border-left: solid 1px;
+				border-bottom: solid 1px;
+				transform: rotate( -45deg );
+				display: inline-block;
+				vertical-align: text-top;
+				
+				@include break( sp ){
+					width: 10px;
+					height: 5px;					
+				}				
+			}
+		}
+	}
+}
+
+
+//////// table
+.aTable{
+	width: 100%;
+	border-collapse: collapse;
+	display: table;
+
+	tr,
+	.aTable__tr{
+		width: 100%;
+		border-bottom: solid $border 1px;
+		display: table-row;
+		// @include break( tab ){
+		// 	display: block;
+		// } 			
+	}
+	th,
+	td,
+	.aTable__th,
+	.aTable__td{
+		text-align: left;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		display: table-cell;
+		vertical-align: top;
+		
+		@include break( tab ){
+			padding-top: 15px;
+			padding-bottom: 15px;
+			// display: block;
+		} 		
+	}
+
+	tr:first-child,
+	.aTable__tr:first-child{
+		th,
+		td{
+			padding-top: 0;			
+		}		
+	}
+
+
+	th,
+	.aTable__th{
+		width: 100px;
+		font-weight: lighter;
+		
+		@include break( tab ){
+			width: 6em;
+		} 		
+	}
+}
+
+.aColumn{
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	display: table;
+	table-layout: fixed;
+	
+	@include break( tab ){
+		margin-top: 25px;
+		margin-bottom: 25px;
+		display: block;
+	}		
+	
+	&__row{
+		display: table-cell;
+		vertical-align: top;
+	
+		@include break( tab ){
+			display: block;
+		}		
+	}
+	&__row + .aColumn__row{
+		padding-left: 50px;
+		@include break( tab ){
+			padding-left: 0;
+		}
+	}	
 }
 
 
@@ -108,19 +253,6 @@
 	justify-content: flex-end;
 	position: relative;
 	
-	&:before{
-		content: " ";
-		width: 100%;
-		height: 80%;
-		max-height: 700px;
-		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-		transition: transition();		
-		background-color: $green;
-	}
-	
 	&__wrap{
 		width: 90%;
 		max-width: 1100px;
@@ -139,6 +271,10 @@
 		letter-spacing: 0.2em;
 		font-size: $xlarge;
 		font-weight: bold;
+		
+		span{
+			display: block;
+		}
 	}
 
 	&__name{
@@ -153,7 +289,7 @@
 		z-index: 1;
 		max-width: percentage( 1036 / 1366 );
 		position: relative;
-		
+
 		&__enTitle{
 			line-height: 0.95;
 			position: absolute;
@@ -175,14 +311,14 @@
 	&__scroll{
 		width: 90%;
 		max-width: 1100px;
-		height: 60px;
+		height: 40px;
 		margin-right: auto;
 		margin-left: auto;
 		display: block;
 		position: absolute;
 		right: 0;
 		left: 0;
-		bottom: calc( 20% - 30px );
+		bottom: calc( 10vh + 20px );
 		
 		&:after,
 		&:before{
@@ -190,21 +326,79 @@
 			display: block;
 			width: 1px;
 			position: absolute;
-			top: 0;
+			bottom: 0;
 			left: 0;
 			
 		}
 		&:after{
 			height: 100%;
-			background-color: $green;
+			background-color: #fff;
+			// background-color: lighten($green, 10%);
 		}
 		&:before{
-			height: 50%;
 			background-color: #fff;
 			z-index: 1;
+			opacity: 0.5;
 			
-			animation: scroll 2s ease-in 0s infinite normal;
+			animation: scroll 2s linear 0s infinite normal;
 		}
+	}
+}
+
+
+//////////
+
+// atfter load effect
+
+//////////
+
+.mainvisual__copy span,
+.mainvisual__name,
+.mainvisual__img img{
+		transition: transition(all, 1s);
+		transform: translateY(20px);
+		opacity: 0;
+}
+
+.mainvisual__img__enTitle{
+	// filter: blur( 10px );
+	opacity: 0;
+	transform:translateY(20px)  rotate( 90deg ) ;
+	
+	text-shadow: 0 0 10px #fff;
+	transition: transition(all, 1s);
+}
+
+
+.isLoaded.isRenderered{
+	
+	.mainvisual__copy span,
+	.mainvisual__name,
+	.mainvisual__img img{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+
+	.mainvisual{
+		&__copy span:first-child{
+			transition-delay: 0.4s;
+		}
+		&__copy span:last-child{
+			transition-delay: 0.5s;
+		}
+
+		&__name {
+			transition-delay: 0.6s;
+		}		
+		&__img img{
+			transition-delay: 0.8s;
+		}
+		&__img__enTitle{
+			opacity: 1;
+			transform:translateY(0px)  rotate( 90deg ) ;	
+			text-shadow: none;
+			transition-delay: 1s;
+		}		
 	}
 }
 
@@ -218,17 +412,31 @@
 
 .introSection
 {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+	margin-bottom: 60px;
+	position: relative;
+
+	&__wrap{
+		// position: absolute;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;		
+	}
+	
 	
 	&.-rtol{
-		flex-direction: row-reverse;
+
+		.introSection__wrap{
+			flex-direction: row-reverse;		
+		}
 		
 		.introSection__img{
 			right: auto;
 			left: 0;
 		}
+	}
+
+	&:first-child .introSection__img{
+		transform: translateY( -30px );
 	}
 	
 	.section{
@@ -238,7 +446,13 @@
 	}
 	
 	&__text{
-		width: 40%;
+		width: calc( 50% - 50px );
+		// flex: 0 1 50%;
+
+		p:last-child{
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 	}
 
 
@@ -246,16 +460,54 @@
 		width: 50%;
 		position: absolute;
 		right: 0;
+		overflow: hidden;
+		transition: transition();
+		will-change: height;
+		// flex: 0 1 50%;	
+		
+		&:after{
+			content: " ";
+			display: block;
+			width: 100%;
+			// height: percentage( 464 / 633 );			
+			height: 0;
+			padding-top: 0;
+			transition: transition( all, 0.5s );	
+		}	
+		
+		img{
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			transition: transition(all, 1s);
+			transform: translateY( 20px );
+		}
+	}
+	&.-on .introSection__img{
+
+		&:after{
+			padding-top: percentage( 464 / 633 );
+		}
+
+		img{
+			opacity: 1;
+			transform: translateY( 0 );
+		}
+		
 	}
 	
 
 
 	&__child{
-			margin-bottom: 60px;
 			
 		&__index{
 			margin-bottom: 35px;
 			font-weight: bold;			
+		}
+		p{
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 
 		p:not( :last-child ){
@@ -310,9 +562,38 @@
 				flex-shrink: 0;
 				transition: transition(all, 1s );
 				
+				.doctorImage,
+				.doctorName,
+				.doctorName:before,
+				.doctorWork{
+					transition: transition( all, 1s );
+					transform: translateX( -20px );					
+					opacity: 0;
+				}
+				.doctorName{
+					transform: translateX( -15px );										
+				}				
+				.doctorName:before{
+					transform: translateX( -5px );										
+				}
+				@at-root .section--doctors .doctor.-on{					
+					.doctorImage,
+					.doctorName,
+					.doctorName:before,
+					.doctorWork{
+						transform: translateX( 0px );					
+						opacity: 1;					
+					}
+					.doctorName:before,{
+						opacity: 0.25;
+					}
+				}
+
+				
 				.doctorImage{
 					line-height: 1;
 					margin-bottom: 20px;
+					transition-delay: 0.1s;
 				}
 				
 				.doctorName{
@@ -320,9 +601,8 @@
 					letter-spacing: 0.1em;
 					font-size: $small;
 					font-weight: bold;
+					transition-delay: 0.2s;
 					
-					.ja{
-					}
 					
 					&:before{
 						content: attr( data-en );
@@ -330,8 +610,9 @@
 						line-height: 1.1;
 						display: block;
 						font-weight: lighter;
+						transition-delay: 0.3s;
 						font-family: $fontFamily_bodoniSans_b;
-						color: $green;
+						color:$green;
 						opacity: 0.25;
 						font-size: 2em;
   						white-space: pre;						
@@ -340,6 +621,7 @@
 
 				.doctorWork{
 					font-size: $xsmall;
+					transition-delay: 0.4s;					
 				}
 			}
 
@@ -358,14 +640,25 @@
 						
 						&:not(:last-child):after{
 							content: " ";
-							width: 100%;
+							width: 0%;
 							height: 1px;
 							display: block;
 							position: absolute;
 							right: 0;
 							bottom: 0;
 							left: 0;
+							transition: easeInOutCirc( all, 1s );
 							background-color: $border;
+						}
+
+						@for $i from 1 through 7 {
+							&:nth-child( #{$i} ):after{
+								transition-delay: #{ 0.1 * $i }s;
+							} 
+						}
+
+						@at-root .section--doctors .doctor.-on .doctorDetail__row:not(:last-child):after{
+							width: 100%;
 						}
 					}
 					&__th{
@@ -413,6 +706,12 @@
 ****************/
 .section--access{
 		position: relative;
+		
+		ul{
+			li{
+				display: block;
+			}
+		}
 		
 		table{
 			margin-bottom: 30px;
@@ -474,3 +773,32 @@
 			}
 		}
 	}	
+
+
+
+
+/**************
+
+// contact
+
+****************/
+.section--contact{
+
+	&.-box .section__content{
+		max-width: none;
+	}
+
+	.contactBoxes{
+		display: flex;
+		flex-direction: row;
+		
+		.contactBox{
+			width: 100%;
+			
+			&:first-child{
+				border-right: none;
+			}
+		}
+	}
+		
+}		

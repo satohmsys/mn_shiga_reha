@@ -8,12 +8,12 @@
 <head>
 	<%- include( '_include/head.ejs' ); %>
 </head>
-<body class="home">
+<body id="t" class="home">
 	<%- include( '_include/header.ejs' ); %>
-	<section class="mainvisual">
+	<section class="mainvisual js-effect">
 		<div class="mainvisual__wrap">
 			<h1 class="mainvisual__copy">
-				<span>未来のリハビリテーション医学に貢献する</span><br>
+				<span>未来のリハビリテーション医学に貢献する</span>
 				<span>多様性のある教育プログラム</span>
 			</h1>
 			<h2 class="mainvisual__name">
@@ -21,7 +21,7 @@
 			</h2>
 		</div>
 		<figure class="mainvisual__img">
-			<img src="<%- $path %>../img/reha/reha-mv.jpg" alt="">
+			<img src="<%- $path %>../img/reha/reha-mv.jpg" srcset="/assets/img/reha/sp/reha-mv.jpg 768w, /assets/img/reha/reha-mv.jpg" alt="">
 			<figcaption class="mainvisual__img__enTitle">
 				Shiga<br>University<br>of<br>Medical<br>Science
 			</figcaption>
@@ -29,7 +29,7 @@
 		<i class="mainvisual__scroll"></i>
 	</section>
 	<main>
-		<section class="section section--intro js-effect">
+		<section class="section section--intro js-effect" id="intro">
 			<div class="wrap">
 				<header class="section__index">
 					<h2 class="en">
@@ -38,46 +38,50 @@
 					<p class="ja">ご挨拶と理念</p>
 				</header>
 				<div class="section__content">
-					<article class="introSection -ltor">
-						<div class="introSection__text">
-							<section class="introSection__child">
-								<h3 class="introSection__child__index">
-									小児から高齢者まで幅広いニーズを持つリハビリテーション医学
-								</h3>
-								<div class="introSection__child__content">
-									<p>リハビリテーション医学とはさまざまな疾患、外傷などにより生じた機能障害を回復し、残存した障害を克服しながら、人々の活動を育む医学分野です。近年では「リハビリテーション」という言葉が医療や福祉の分野で盛んに用いられるようになりました。それにより一般の方の認知度もかなり上昇し、医療におけるその重要性も極めて高くなっています。とくに高齢化が急速に進んだ現在では、リハビリテーション医学・医療の対象者が、小児から高齢者まですべての年齢層に広がっています。</p>
-
-									<p>リハビリテーション医学は従来の「臓器別診療型」の医療とは異なり、「人間的復権」を理念として障害のある患者さんの能力を最大限に発揮させて自立を促し、生活の質（QOL=quality of life:生活の質）を高めることを目標としています。そのため、他の診療科を含める医師や多職種の方々と協力し、患者さん一人一人を全人的に支援していく「チーム医療」の意識が必要です。リハビリテーション医学が必要となる背景は運動器障害、脳血管障害、循環器や呼吸器などの内部障害、摂食嚥下障害、小児疾患、がんなど幅広い領域に及んでいます。それぞれの疾患を治療する診療科・専門家と連携し治療を行うため、リハビリテーション医学には多くの知識と実用性を必要とします。</p>
-
-								</div>
-							</section>
+					<article class="introSection -ltor js-effect">
+						<div class="introSection__wrap">
+							<div class="introSection__text">
+								<section class="introSection__child">
+									<h3 class="introSection__child__index">
+										小児から高齢者まで幅広いニーズを持つリハビリテーション医学
+									</h3>
+									<div class="introSection__child__content">
+										<p>リハビリテーション医学とはさまざまな疾患、外傷などにより生じた機能障害を回復し、残存した障害を克服しながら、人々の活動を育む医学分野です。近年では「リハビリテーション」という言葉が医療や福祉の分野で盛んに用いられるようになりました。それにより一般の方の認知度もかなり上昇し、医療におけるその重要性も極めて高くなっています。とくに高齢化が急速に進んだ現在では、リハビリテーション医学・医療の対象者が、小児から高齢者まですべての年齢層に広がっています。</p>
+							
+										<p>リハビリテーション医学は従来の「臓器別診療型」の医療とは異なり、「人間的復権」を理念として障害のある患者さんの能力を最大限に発揮させて自立を促し、生活の質（QOL=quality of life:生活の質）を高めることを目標としています。そのため、他の診療科を含める医師や多職種の方々と協力し、患者さん一人一人を全人的に支援していく「チーム医療」の意識が必要です。リハビリテーション医学が必要となる背景は運動器障害、脳血管障害、循環器や呼吸器などの内部障害、摂食嚥下障害、小児疾患、がんなど幅広い領域に及んでいます。それぞれの疾患を治療する診療科・専門家と連携し治療を行うため、リハビリテーション医学には多くの知識と実用性を必要とします。</p>
+							
+									</div>
+								</section>
+							</div>
+							<figure class="introSection__img">
+								<img src="<%- $path %>/../img/reha/reha-intro-img.jpg" alt="">
+							</figure>
 						</div>
-						<figure class="introSection__img">
-							<img src="<%- $path %>/../img/reha/reha-intro-img.jpg" alt="">
-						</figure>
 					</article>
-					<article class="introSection -rtol">
-						<div class="introSection__text">
-							<section class="introSection__child">
-								<h3 class="introSection__child__index">
-									専門医資格を取得し、未来のリハビリテーション医学に貢献する
-								</h3>
-								<div class="introSection__child__content">
-									<p>2018年度よりスタートした新専門医制度では、リハビリテーション科は18基本診療科の一つに数えられています。滋賀県では滋賀医科大学リハビリテーション科を基幹施設として専門医プログラムを展開する予定です。当科では今後も基幹施設として最先端の診療を行い、患者さんの健康に大きく寄与するとともに、今後のリハビリテーション診療に貢献する臨床、基礎研究に邁進していきます。当科に少しでも興味を持たれた学部生、研修医の先生方はぜひ一度お気軽にご相談ください。</p>
-									<p class="name">
-										<small>リハビリテーション科 部長/整形外科学講座　教授　今井 晋二</small>
-									</p>
-								</div>
-							</section>
+					<article class="introSection -rtol js-effect">
+						<div class="introSection__wrap">
+							<div class="introSection__text">
+								<section class="introSection__child">
+									<h3 class="introSection__child__index">
+										専門医資格を取得し、未来のリハビリテーション医学に貢献する
+									</h3>
+									<div class="introSection__child__content">
+										<p>2018年度よりスタートした新専門医制度では、リハビリテーション科は18基本診療科の一つに数えられています。滋賀県では滋賀医科大学リハビリテーション科を基幹施設として専門医プログラムを展開する予定です。当科では今後も基幹施設として最先端の診療を行い、患者さんの健康に大きく寄与するとともに、今後のリハビリテーション診療に貢献する臨床、基礎研究に邁進していきます。当科に少しでも興味を持たれた学部生、研修医の先生方はぜひ一度お気軽にご相談ください。</p>
+										<p class="name">
+											<small>リハビリテーション科 部長 / 整形外科学講座 教授 / 今井 晋二</small>
+										</p>
+									</div>
+								</section>
+							</div>
+							<figure class="introSection__img">
+								<img src="<%- $path %>/../img/reha/reha-intro-imai.jpg" alt="">
+							</figure>
 						</div>
-						<figure class="introSection__img">
-							<img src="<%- $path %>/../img/reha/reha-intro-imai.jpg" alt="">
-						</figure>
 					</article>					
 				</div>
 			</div>
 		</section>
-		<section class="section section--programs -box js-effect">
+		<section class="section section--programs -box js-effect" id="programs">
 			<div class="wrap">
 				<header class="section__index">
 					<h2 class="en">
@@ -86,9 +90,9 @@
 					<p class="ja">専門研修プログラムについて</p>
 				</header>
 				<div class="section__content">	
-					<p>リハビリテーション科専門研修プログラムは、2018年度から始まる新専門医制度のもとで、リハビリテーション科専門医になるために、編纂された研修プログラムです。</p>
+					<p>リハビリテーション科専門研修プログラムは、2018年度から始まる新専門医制度のもとで、<br>リハビリテーション科専門医になるために、編纂された研修プログラムです。</p>
 
-					<p>滋賀医科大学リハビリテーション科専門研修プログラムは、地方の立地を生かし、多くの症例の経験ができ、専攻医の皆さんの多様な希望にこたえられるプログラムを提供します。</p>
+					<p>滋賀医科大学リハビリテーション科専門研修プログラムは、地方の立地を生かし、<br>多くの症例の経験ができ、専攻医の皆さんの多様な希望にこたえられるプログラムを提供します。</p>
 					<p class="-hasArrow">
 						<a href="">詳しくはこちら(PDF)</a>
 					</p>
@@ -99,7 +103,7 @@
 						<p class="contactBox__text">
 							お電話にて、お手数ですがご連絡くださいませ。なお、外来直通となっております。
 						</p>
-						<div class="contectBox__telnum">
+						<div class="contactBox__telnum">
 							<span class="contactBox__tel">
 								<a href="tel:077-548-2252">077-548-2252</a>
 							</span>
@@ -109,7 +113,7 @@
 				</div>							
 			</div>
 		</section>
-		<section class="section section--doctors js-effect">
+		<section class="section section--doctors js-effect" id="doctors">
 			<div class="wrap">
 				<header class="section__index">
 					<h2 class="en">
@@ -127,7 +131,7 @@
 									今井晋二
 								</h3>
 								<div class="doctorWork">
-									整形外科学講座　教授　　リハビリテーション部長</div>
+									整形外科学講座 教授<br>リハビリテーション部長</div>
 							</div>
 							<div class="doctor__right">
 								<ul class="doctorDetail">
@@ -144,7 +148,7 @@
 											役職
 										</h4>
 										<div class="doctorDetail__td">
-											整形外科学講座　教授　　リハビリテーション部長
+											整形外科学講座 教授<br>リハビリテーション部長
 										</div>
 									</li>
 									<li class="doctorDetail__row">
@@ -358,7 +362,7 @@
 				</div>							
 			</div>
 		</section>	
-		<section class="section section--schedule -box js-effect">
+		<section class="section section--schedule -box js-effect" id="schedule">
 			<div class="wrap">
 				<header class="section__index">
 					<h2 class="en">
@@ -378,7 +382,7 @@
 						<p class="contactBox__text">
 							お電話にて、お手数ですがご連絡くださいませ。なお、外来直通となっております。
 						</p>
-						<div class="contectBox__telnum">
+						<div class="contactBox__telnum">
 							<span class="contactBox__tel">
 								<a href="tel:077-548-2252">077-548-2670</a>
 							</span>
@@ -388,7 +392,7 @@
 				</div>							
 			</div>
 		</section>
-		<section class="section section--access js-effect">
+		<section class="section section--access js-effect" id="access">
 			<div class="wrap">
 				<header class="section__index">
 					<h2 class="en">
@@ -465,9 +469,53 @@
 					</section>					
 				</div>							
 			</div>
-		</section>		
+		</section>	
+		<section class="section section--contact -box js-effect" id="contact">
+			<div class="wrap">
+				<header class="section__index">
+					<h2 class="en">
+						<span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span>
+					</h2>
+					<p class="ja">お問い合わせ</p>
+				</header>
+				<div class="section__content">	
+					<p>お電話にて、お手数ですがご連絡くださいませ。<br>
+					なお、直通となっております。</p>
+					<div class="contactBoxes">
+						<div class="contactBox">
+							<h3 class="contactBox__index">
+								医局についてのお問い合わせ
+							</h3>
+							<p class="contactBox__text">
+								お電話にて、お手数ですがご連絡くださいませ。なお、外来直通となっております。
+							</p>
+							<div class="contactBox__telnum">
+								<span class="contactBox__tel">
+									<a href="tel:077-548-2252">077-548-2252</a>
+								</span>
+								<span>（医局直通）</span>
+							</div>
+						</div>						
+						<div class="contactBox">
+							<h3 class="contactBox__index">
+								外来への予約・お問い合わせ
+							</h3>
+							<p class="contactBox__text">
+								お電話にて、お手数ですがご連絡くださいませ。なお、外来直通となっております。
+							</p>
+							<div class="contactBox__telnum">
+								<span class="contactBox__tel">
+									<a href="tel:077-548-2252">077-548-2670</a>
+								</span>
+								<span>（外来直通）</span>
+							</div>
+						</div>
+					</div>
+				</div>							
+			</div>
+		</section>
 	</main>
-
+	<%- include( '_include/nav.ejs' ); %>
 	<%- include( '_include/footer.ejs' ); %>
 </body>
 </html>

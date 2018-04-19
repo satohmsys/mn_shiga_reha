@@ -22,6 +22,7 @@ html{
 	line-height: $baselineHeight;
 	position: relative;
 	font-family: $fontFamily;
+	-webkit-font-smoothing: antialiased;
 	 -webkit-text-size-adjust: 100%;
 	color: $basefontColor;
 	

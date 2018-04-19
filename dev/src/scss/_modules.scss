@@ -26,13 +26,30 @@ body{
 	padding-top: 50px;
 	padding-bottom: 50px;
 	line-height: 1;
-	position: fixed;
+	position: absolute;
 	z-index: 9;
 	top: 0;
 	right: 0;
-	left: 0;
-	transition: transition();		
+	left: 0;	
 	background-color: $green;
+	
+	
+	@at-root .-isScrolled .siteHeader{
+		// opacity: 0;
+		position: fixed;
+		opacity: 0;
+		transition: transition();
+		transition-property: transform;
+		transform: translateY( -20px );
+		
+		font-size: $small;
+	}
+	@at-root .-isScrolled.-isScrolledMore .siteHeader{
+		// opacity: 1;
+		// transform: translateY( 0px );
+		
+		animation: navShow 0.5s ease-in-out 0s 1 normal both;	
+	}
 	
 	@include break( tab ){
 	} 	
@@ -65,6 +82,10 @@ body{
 			color: #fff;
 			transition: transition();
 			
+			&:not( :last-child ){
+				margin-bottom: 10px;				
+			}
+			
 			@for $i from 1 through 8 {
 				li:nth-child( #{$i} ){
 					transition-delay: #{ $i * 0.15 }s;
@@ -90,12 +111,14 @@ body{
 				}
 				
 				&:before{
-					width: 10px;
+					width: 13px;
 					height:20px;
 					margin-right: 10px;	
-					vertical-align: sub;						
+					position: relative;
+					bottom: 1px;
+					vertical-align: middle;						
 					background: url( ../img/reha/icon-phone.svg) center center no-repeat;
-					background-size: 100% auto;
+					background-size: auto 100%;
 				}
 				&:after{
 					width: 25px;
@@ -114,6 +137,10 @@ body{
 				font-family: $fontFamily_bodoniSans_r;
 				letter-spacing: 0.1em;
 			}
+
+			@at-root .-isScrolled .siteHeader__nav__tel dd{					
+				font-size: 1em;
+			}			
 		}
 
 		a{
@@ -125,11 +152,45 @@ body{
 
 @include break( tab, min ){
 	.-isScrolled .siteHeader{
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 		.siteHeader__logo{
+			width: 251px;
 		}
 	}	
+}
+
+//////////
+
+// atfter load effect
+
+//////////
+
+.siteHeader{
+	&__logo,
+	&__nav{
+		transition: transition( all, 1s);
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+}
+
+.isLoaded.isRenderered{
+	.siteHeader{
+		&__logo,
+		&__nav{
+			transform: translateY(0px);
+			opacity: 1;
+		}	
+		.siteHeader{
+			&__logo{
+				transition-delay: 0s;
+			}
+			&__nav{
+				transition-delay: 0.2s;
+			}
+		}
+	}
 }
 
 
@@ -141,15 +202,90 @@ body{
 
 
 .nav {
+	width: 100%;
+	line-height: 1;
+	position: fixed;
+	z-index: 9;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: transition();	
+	opacity: 0;
+	transform: translateY( 20px );
+	font-size: $small;
+	
+	@at-root .-isScrolledMore .nav{
+		opacity: 1;
+		transform: translateY( 0 )	
+	}
+	
+
 	@include break( tab,min ){
 		font-size: 0.9375em;
-	}		
-	li{
-		display: inline-block;
-		vertical-align: middle;
+	}	
+
+	ul{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		flex-direction: row;
+		align-content: flex-start ;
+	}	
+	&__phase{
+		width: 100%;
+		display: block;
+		text-align: center;
+		letter-spacing: 0.05em;
+		
+		span{
+			@include break( tab ){
+				display: none;
+			}
+		}	
+		
+		.en{
+			margin-top: 0;
+			margin-bottom: 10px;
+			transition: transition();
+			color: #ccc;
+			font-family: $fontFamily_bodoniSans_r;
+		}
+		.ja{
+			margin-top: 0;
+			margin-bottom: 0;
+			transition: transition();
+			font-size: $small;
+		}
 		
 		a{
-			letter-spacing: 0.05em;
+			padding: 15px 10px;
+			display: block;
+			position: relative;
+			color: inherit;
+			background-color: #fff;
+			
+			@include mouseOver(){
+				background-color: #f8f8f8;				
+
+				.ja{
+					color: $gray;
+				}						
+			}
+		}
+
+		div{
+			display: inline-block;
+			text-align: left;
+		}
+
+		&.inactive a{
+			pointer-events: none;
+			background-color: #f8f8f8;
+			.ja{
+				color: $gray;
+			}		
 		}
 		
 		@include break( tab ){
@@ -157,10 +293,6 @@ body{
 		}		
 	}
 
-	.-notActive{
-		opacity: 0.3;
-		pointer-events: none;
-	}
 }
 
 
@@ -299,6 +431,13 @@ body{
 		padding: 10px;
 		background-color: $green_lighten;
 		cursor: pointer;
+		transition: transition();
+		
+		@include mouseOver(){
+			// padding-top: 20px;
+			// padding-bottom: 20px;
+			background-color: $green_dark;
+		}
 		
 		i{
 			width: 17px;
@@ -411,22 +550,25 @@ body{
 	bottom: 0;
 	left: 0;
 	text-align: center;
-	border: solid 10px $navy;
-	transition: transition();
-	background-color: #fff;
+	color: #fff;
 	
 	@include break( tab ){
-		border-width: 5px;
+	}
+
+	&__logo{
+		transition: transition();
+		transition-delay: 0s;
 	}
 	
 	
 	&__text{
+		margin-top: 1em;
 		// transform: scaleX( 0.85 );
 		letter-spacing: 0.45em;
 		font-size: $small;
-		color: $blue_dull;
 		position: relative;
-		
+		transition: transition();
+		transition-delay: 0.2s;		
 		
 		&:before,
 		&:after{
@@ -439,36 +581,73 @@ body{
 			left: 0;
 			bottom: -40px;
 			border-radius: 100%;
-			transition: transition( all, 1s );
+			transition: transition();			
 		}
 		&:before{
 			width: 20px;
 			height: 20px;
-			// mix-blend-mode: hard-light;
-			background-color: $blue_dull;
+			mix-blend-mode: hard-light;
+			background-color: #fff;
 			animation: loading_s 1.2s ease-in-out 0s infinite alternate both;
 		}
-
 		&:after{
 			width: 10px;
 			height: 10px;
 			bottom: -35px;
-			background-color: $navy;
+			background-color: green;
 			animation: loading 1.2s ease-in-out 0.4s infinite alternate both;			
 		}
 	}
 }
-.isLoaded .loadingAnim{
-	transform: translateZ( -5px );
-	opacity: 0;
-	transition-delay: 0.5s;
+
+body{
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
+	position: fixed;
+	top: 0;
 	
-	&__text:before,
-	&__text:after{
-		// animation: none;
-		opacity: 0;
-		// transform: scale( 2 );
+	&:after{
+		content: " ";
+		width: 100vw;
+		height: 100vh;
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		right: 0;
+		left: 0;
+		text-align: center;
+		color: #fff;
+		transition: easeInOutCirc(all,0.8s);
+		transition-delay: 0.4s;
+		background-color: $green;			
+	}
+}
+
+.isLoaded{
+	position: relative;
+	overflow-y: auto;
+
+	&:after{
+		height: 95vh;
+		z-index: 0;
+		position: absolute;
+	}
+	
+	.loadingAnim{
+		
+		&__text,
+		&__logo{
+			transform: translateY( -10px );
+			opacity: 0;
+		}
+		&__text:before,
+		&__text:after{
+			opacity: 0;
+		}
 	}
 }
 
@@ -503,138 +682,17 @@ body{
 
 
 
-////////////////////
+%indexStyle_b{
+	line-height: 1.4;
+	margin-bottom: 30px;
+	font-weight: bold;
+	// font-size: 1.25em;
+	letter-spacing: 0.075em;
 
-// button
-
-////////////////////
-
-%buttonStyle_cv{
-		display: block;
-		position: relative;
-		border-radius: 3px;
-		text-align: center;
-		color: #fff;	
-		transition: transition();
-		background-size: 100% auto;
-		background-image: linear-gradient( to right, lighten($orange, 10%), $orange);		
-}
-
-.button
-{
-	display: inline-block;
-	
-	a{
-		padding: 1em;
-		letter-spacing: 0.1em;
-		@extend %buttonStyle_cv;
-
-		@include mouseOver(){
-			background-size: 300% auto;
-		}
-	}
-
-	&--inquiry{
-		&.-hasArrow {
-			@extend .-hasArrow;			
-			a{
-				&:after{
-					margin-top: auto;
-					margin-bottom: auto;
-					position: absolute;
-					top: 0;
-					right: 5px;
-					bottom: 0;
-					display: block;
-					background: url(../img/common/icon-arrow-white.svg) center center no-repeat;
-				}
-			}
-		}
-	}
-
-	&--submit{
-		display: block;
-		position: relative;
-		
-		// &:after{
-		// 	content: " ";
-		// 	width: 16px;
-		// 	height: 8px;
-		// 	margin-left: 10px;			
-		// 	margin-top: auto;
-		// 	margin-bottom: auto;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	right: 5px;
-		// 	bottom: 0;
-		// 	display: block;
-		// 	background: url(../img/common/icon-arrow-white.svg) center center no-repeat;
-		// }		
-
-		input{
-			width: 100%;
-			box-sizing: border-box;
-			cursor: pointer;
-			border: none;
-			font-size: 1em;
-
-			@extend%buttonStyle_cv;
-
-			@include mouseOver(){
-				background-size: 300% auto;
-			}
-		}
-	}
-	&--back{
-		display: block;
-		position: relative;
-		
-		// &:after{
-		// 	content: " ";
-		// 	width: 16px;
-		// 	height: 8px;
-		// 	margin-left: 10px;			
-		// 	margin-top: auto;
-		// 	margin-bottom: auto;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	right: 5px;
-		// 	bottom: 0;
-		// 	display: block;
-		// 	background: url(../img/common/icon-arrow-white.svg) center center no-repeat;
-		// }		
-
-		input{
-			width: 100%;
-			box-sizing: border-box;
-			cursor: pointer;
-			border: none;
-			font-size: 1em;
-
-			@extend%buttonStyle_cv;
-			background-image: $blue_gradation;
-
-			@include mouseOver(){
-				background-size: 300% auto;
-			}
-		}
-	}	
-
-	&--secondary{
-		position: relative;		
-		a{
-			width: 100%;
-			box-sizing: border-box;
-			cursor: pointer;
-			border: none;
-			font-size: 1em;
-
-			@extend%buttonStyle_cv;
-			background-image: $blue_gradation;
-
-			@include mouseOver(){
-				background-size: 300% auto;
-			}			
-		}
+	@include break( tab ){
+		margin-bottom: 20px;
+		// font-size: 1.2em;
+		padding-left: calc(1em + 8px);
+		text-indent: calc(-1em - 8px);	
 	}
 }
