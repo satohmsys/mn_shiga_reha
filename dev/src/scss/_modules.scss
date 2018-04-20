@@ -33,6 +33,12 @@ body{
 	left: 0;	
 	background-color: $green;
 	
+	@include break( tab ){
+		padding-top: 15px;
+		padding-bottom: 15px;
+		text-align: center;
+	}		
+	
 	
 	@at-root .-isScrolled .siteHeader{
 		// opacity: 0;
@@ -51,14 +57,15 @@ body{
 		animation: navShow 0.5s ease-in-out 0s 1 normal both;	
 	}
 	
-	@include break( tab ){
-	} 	
-	
 	 > .wrap{
 	 	display: flex;
 	 	flex-direction: row;
 	 	align-items: center;
 	 	justify-content: space-between;
+		
+		@include break( tab ){
+			flex-direction: column;
+		} 	
 	 }
 
 	&__logo{
@@ -68,13 +75,26 @@ body{
 		
 		img{
 			transition: transition();	
+			
+			
+			@include break( tab ){
+				max-width: 80%;
+			}				
 		}
 	}
 
 	&__nav{
+
+			@include break( tab ){
+				width: 100%;
+			}			
 		
-		@include break( tab ){
-		}		
+		ul {
+			@include break( tab ){
+				display: flex;
+				flex-direction: row;
+			}					
+		}
 		
 		li{
 			line-height: 1;
@@ -85,12 +105,17 @@ body{
 			&:not( :last-child ){
 				margin-bottom: 10px;				
 			}
-			
-			@for $i from 1 through 8 {
-				li:nth-child( #{$i} ){
-					transition-delay: #{ $i * 0.15 }s;
+
+			@include break( tab ){
+				width: 100%;
+				text-align: center;
+				
+				&:not( :last-child ){
+					margin-bottom: 0;
 				}
-			}
+				
+			}		
+
 		}
 
 		&__tel{
@@ -99,6 +124,12 @@ body{
 			flex-direction: row;
 			align-items: center;
 			letter-spacing: 0.01em;
+			
+			@include break( tab ){
+				margin-bottom: 0;
+				display: inline-flex;
+			}
+
 			
 			dt { 
 				font-size: 0.95em;
@@ -119,6 +150,10 @@ body{
 					vertical-align: middle;						
 					background: url( ../img/reha/icon-phone.svg) center center no-repeat;
 					background-size: auto 100%;
+					
+					@include break( tab ){
+						display: none;
+					}
 				}
 				&:after{
 					width: 25px;
@@ -126,7 +161,14 @@ body{
 					margin-right: 10px;
 					margin-left: 10px;
 					background-color: #fff;
-					vertical-align: middle;			
+					vertical-align: middle;	
+					
+					@include break( tab ){
+						width: 10px;
+						margin-right: 3px;
+						margin-left: 3px;
+					}
+
 					
 				}
 			}
@@ -136,6 +178,11 @@ body{
 				font-size: $large;
 				font-family: $fontFamily_bodoniSans_r;
 				letter-spacing: 0.1em;
+				
+				@include break( tab ){
+					font-weight: bold;
+				}
+				
 			}
 
 			@at-root .-isScrolled .siteHeader__nav__tel dd{					
@@ -251,12 +298,30 @@ body{
 			transition: transition();
 			color: #ccc;
 			font-family: $fontFamily_bodoniSans_r;
+			@include break( tab ){
+				height: 1em;
+				line-height:1;
+				margin-top: auto;
+				margin-bottom: auto;				
+				font-size: 40px;
+				position: absolute;
+				color: #e4e4e4;
+				top: 0;
+				bottom: 0;
+				left: 5px;
+				
+			}			
 		}
 		.ja{
 			margin-top: 0;
 			margin-bottom: 0;
 			transition: transition();
 			font-size: $small;
+			
+			@include break( tab ){
+				position: relative;
+				z-index: 1;	
+			}			
 		}
 		
 		a{
@@ -265,6 +330,13 @@ body{
 			position: relative;
 			color: inherit;
 			background-color: #fff;
+			
+
+			@include break( tab ){
+				padding-top: 20px;
+				padding-bottom: 20px;				
+			}
+
 			
 			@include mouseOver(){
 				background-color: #f8f8f8;				
@@ -288,9 +360,12 @@ body{
 			}		
 		}
 		
+	}
+
+	.phase--contact{
 		@include break( tab ){
-			display: block;
-		}		
+			display: none;
+		}
 	}
 
 }
@@ -459,7 +534,7 @@ body{
 		background-color: #fff;
 		
 		@include break( tab ){
-			padding-bottom: 90px;
+			padding-bottom: 70px;
 		}			
 		
 
@@ -470,7 +545,7 @@ body{
 		    justify-content: space-between;
 		    
 		    @include break( tab ){
-		    	flex-direction: column-reverse;
+		    	flex-direction: column;
 		    }
 
 		}
@@ -483,7 +558,6 @@ body{
 		    justify-content: space-between;	
 		    
 			@include break( tab ){
-				margin-top: 30px;
 				flex-direction: column;
 				text-align: center;
 			}			    
@@ -493,7 +567,9 @@ body{
 		    	margin-right: 40px;
 		    	
 				@include break( tab ){
+					// margin-top: 35px;
 					margin-right: 0;
+					margin-bottom: 25px;
 				}			    	
 		    }
 
@@ -507,6 +583,19 @@ body{
 					}			    		
 		    	}
 
+		    }
+
+		    .orthopaedics{
+					@include break( tab ){
+						margin-top: 20px;
+					}		    	
+		    }		
+		}
+
+		/////→
+		.areaRight{
+			font-size: $xsmall;
+
 		    	.copyright{
 		    		color: $gray;
 		    		font-size: 10px;
@@ -515,12 +604,6 @@ body{
 						margin-top: 20px;
 					}			    		
 		    	}
-		    }		
-		}
-
-		/////→
-		.areaRight{
-			font-size: $xsmall;
 		}
 	}
 
@@ -629,12 +712,17 @@ body{
 
 .isLoaded{
 	position: relative;
+	overflow-x: hidden;
 	overflow-y: auto;
 
 	&:after{
 		height: 95vh;
 		z-index: 0;
 		position: absolute;
+		
+		@include break( tab ){
+			height: 50vh;
+		}			
 	}
 	
 	.loadingAnim{

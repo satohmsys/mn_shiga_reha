@@ -12,6 +12,10 @@
 	line-height: 1;
 	letter-spacing: 0.2em;
 	
+	@include break( tab ){
+		margin-bottom: 30px;
+	}		
+	
 	.ja,
 	.en span{
 		opacity: 0;
@@ -26,6 +30,18 @@
 		font-size: 10em;
 		font-family: $fontFamily_bodoniSans_b;		
 		letter-spacing: 0.1em;
+		
+		br{
+			display: none;
+		}
+		
+		@include break( tab ){
+			font-size: 4.5em;
+		
+			br{
+				display: block;
+			}
+		}			
 	}
 	.en span{
 		display: inline-block;
@@ -34,7 +50,7 @@
 		transition: transition( all, 0.8s );
 
 		@for $i from 1 through 12 {
-			&:nth-child( #{$i} ){
+			&:nth-of-type( #{$i} ){
 				transition-delay: #{ 0.1 * $i + 0.1}s;
 			}
 		}
@@ -44,6 +60,11 @@
 		position: absolute;
 		bottom: 0;
 		font-weight: bold;	
+		
+		@include break( tab ){
+			margin-top: 1em;
+			position: static;
+		}			
 	}
 
 
