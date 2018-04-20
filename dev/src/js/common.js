@@ -132,8 +132,7 @@ var localNavHited = () => {
 			if( $section_offset < $scrollBottom ){
 				let $id = $section.attr( 'id' );
 
-				$nav.removeClass( 'inactive' ).filter( function(){
-					console.log( $(this))					
+				$nav.removeClass( 'inactive' ).filter( function(){				
 					return $(this).attr( 'data-nav' ) == $id;
 				} ).addClass('inactive');			
 			}
