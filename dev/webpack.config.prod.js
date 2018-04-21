@@ -5,11 +5,15 @@ const MODE = 'production';
 
 let vars = require('./webpack.variables.js');
 
-vars.PATHS.output.path = '../dist';
+vars.PATHS.output.path = path.resolve(__dirname,'../dist');
 vars.enabledSourceMap = false;
 
 let config = merge( baseConfig, {
 	mode: MODE,
+
+	output: {
+		path: vars.PATHS.output.path
+	},		
 
 	module: {
 		rules:[

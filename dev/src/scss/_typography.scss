@@ -36,11 +36,15 @@
 		}
 		
 		@include break( tab ){
-			font-size: 4.5em;
+			font-size: 14.5vw;
+			// font-size: 4.5em;
 		
 			br{
 				display: block;
 			}
+		}
+
+		@include break( 320 ){
 		}			
 	}
 	.en span{
