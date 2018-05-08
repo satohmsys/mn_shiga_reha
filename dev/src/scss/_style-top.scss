@@ -297,7 +297,7 @@
 	position: relative;
 	
 	@include break( tab ){
-		padding-top: 90px;
+		padding-top: 94px;
 		flex-direction: column-reverse;
 	}		
 	
@@ -316,6 +316,8 @@
 		
 		@include break( tab ){
 			width: auto;
+			padding-right: 5%;
+			padding-left: 5%;
 			margin-top: 40px;
 			position: static;
 			transform: none;
@@ -328,7 +330,8 @@
 		font-weight: bold;
 		
 		@include break( tab ){
-			font-size: 1em;
+			letter-spacing: 0.1em;
+			font-size: 4.2vw;
 		}			
 		
 		span{
@@ -344,6 +347,7 @@
 		
 		@include break( tab ){
 			margin-top: 1em;
+			letter-spacing: 0.1em;
 		}			
 	}
 

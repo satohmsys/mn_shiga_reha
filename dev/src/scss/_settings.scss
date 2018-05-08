@@ -27,7 +27,7 @@ html{
 	color: $basefontColor;
 	
 	@include break( sp ){
-		font-size: 13px;
+		font-size: 14px;
 	}
 }
 
