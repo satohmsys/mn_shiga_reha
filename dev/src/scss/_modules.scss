@@ -590,9 +590,15 @@ body{
 
 		    }
 
-		    .orthopaedics{
+		    .links{
+		    	a + a{
+		    		margin-left: 1em;
+		    	}
 					@include break( tab ){
 						margin-top: 20px;
+				    	a + a{
+				    		margin-left: 1em;
+				    	}						
 					}		    	
 		    }		
 		}
