@@ -34,8 +34,8 @@ body{
 	background-color: $green;
 	
 	@include break( tab ){
-		padding-top: 15px;
-		padding-bottom: 13px;
+		padding-top: 20px;
+		padding-bottom: 19px;
 		text-align: center;
 	}		
 	
@@ -109,6 +109,7 @@ body{
 			@include break( tab ){
 				width: 100%;
 				text-align: center;
+				font-size: 12px;
 				
 				&:not( :last-child ){
 					margin-bottom: 0;
@@ -176,13 +177,9 @@ body{
 				padding-left: 0;
 				margin-left: 0;
 				font-size: $large;
+				font-weight: bold;
 				font-family: $fontFamily_bodoniSans_r;
 				letter-spacing: 0.1em;
-				
-				@include break( tab ){
-					font-weight: bold;
-				}
-				
 			}
 
 			@at-root .-isScrolled .siteHeader__nav__tel dd{					
@@ -197,15 +194,20 @@ body{
 }
 
 
-@include break( tab, min ){
-	.-isScrolled .siteHeader{
-		padding-top: 5px;
-		padding-bottom: 5px;
-		.siteHeader__logo{
-			width: 251px;
-		}
-	}	
-}
+.-isScrolled .siteHeader{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	@include break( tab){
+		padding-top: 13px;
+		padding-bottom: 12px;
+	}
+	.siteHeader__logo{
+		width: 251px;
+		@include break( tab){
+			width: auto;
+		}		
+	}
+}	
 
 //////////
 
@@ -531,7 +533,7 @@ body{
 	////////クレジットとローカルナビ
 	&__creditArea{
 		padding-top: 30px;
-		padding-bottom: 50px;
+		padding-bottom: 70px;
 		font-size: $small;		
 		background-color: #fff;
 		
@@ -588,9 +590,15 @@ body{
 
 		    }
 
-		    .orthopaedics{
+		    .links{
+		    	a + a{
+		    		margin-left: 1em;
+		    	}
 					@include break( tab ){
 						margin-top: 20px;
+				    	a + a{
+				    		margin-left: 1em;
+				    	}						
 					}		    	
 		    }		
 		}
@@ -719,9 +727,14 @@ body{
 	overflow-y: auto;
 
 	&:after{
-		height: 95vh;
+		height: 85vh;
 		z-index: 0;
 		position: absolute;
+
+		@include break( 1366 ){
+			height: 90vh;
+		}			
+		
 		
 		@include break( tab ){
 			height: 50vh;
