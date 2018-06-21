@@ -691,28 +691,20 @@
 				
 				.doctorImage,
 				.doctorName,
-				.doctorName:before,
+				.doctorNameEn,
 				.doctorWork{
 					transition: transition( all, 1s );
 					transform: translateX( -20px );					
 					opacity: 0;
 				}
-				.doctorName{
-					transform: translateX( -15px );										
-				}				
-				.doctorName:before{
-					transform: translateX( -5px );										
-				}
+
 				@at-root .section--doctors .doctor.-on{					
 					.doctorImage,
 					.doctorName,
-					.doctorName:before,
+					.doctorNameEn,
 					.doctorWork{
 						transform: translateX( 0px );					
 						opacity: 1;					
-					}
-					.doctorName:before,{
-						opacity: 0.25;
 					}
 				}
 
@@ -728,6 +720,22 @@
 						margin-bottom: 0;
 					}					
 				}
+
+				.doctorNameEn{
+					margin-bottom: 15px;
+					line-height: 1.1;
+					display: block;
+					font-weight: lighter;
+					transition-delay: 0.2s;
+					font-family: $fontFamily_bodoniSans_b;
+					color: desaturate( lighten( $green, 50% ), 10% );
+					opacity: 0.25;
+					font-size: 2em;					
+					
+					@include break( tab ){
+						margin-bottom: 7px;
+					}					
+				}
 				
 				.doctorName{
 					line-height: 1;
@@ -735,7 +743,7 @@
 					letter-spacing: 0.1em;
 					font-size: $small;
 					font-weight: bold;
-					transition-delay: 0.2s;
+					transition-delay: 0.3s;
 					
 					
 					@include break( tab ){
@@ -745,22 +753,14 @@
 					
 					&:before{
 						content: attr( data-en );
-						margin-bottom: 5px;
-						line-height: 1.1;
-						display: block;
-						font-weight: lighter;
-						transition-delay: 0.3s;
-						font-family: $fontFamily_bodoniSans_b;
-						color:$green;
-						opacity: 0.25;
-						font-size: 2em;
+
   						white-space: pre;						
 					}
 				}
 
 				.doctorWork{
 					font-size: $xsmall;
-					transition-delay: 0.4s;					
+					transition-delay: 0.5s;					
 				}
 			}
 
@@ -816,33 +816,7 @@
 					}
 				}
 			}
-	}
-
-	.doctor--imai{
-		.doctorName:before{
-			content: "Shinji\AImai";
-		}
-	}
-	.doctor--kodama{
-		.doctorName:before{
-			content: "Narihito\AKodama";
-		}
-	}
-	.doctor--kawaguchi{
-		.doctorName:before{
-			content: "Tamirow\AKawaguchi";
-		}
-	}	
-	.doctor--andoh{
-		.doctorName:before{
-			content: "Kosei\AAndo";
-		}
 	}		
-	.doctor--nakajima{
-		.doctorName:before{
-			content: "Ryo\ANakajima";
-		}
-	}			
 }
 
 
