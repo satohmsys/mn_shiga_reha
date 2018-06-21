@@ -434,14 +434,16 @@
 		transform: translateY(20px);
 		opacity: 0;
 }
-
+.mainvisual__img img{
+	transition-duration: 1.2s;
+}
 .mainvisual__img__enTitle{
 	// filter: blur( 10px );
 	opacity: 0;
 	transform:translateY(20px)  rotate( 90deg ) ;
 	
 	text-shadow: 0 0 10px #fff;
-	transition: transition(all, 1s);
+	transition: transition(all, 1.2s);
 }
 
 
@@ -456,14 +458,14 @@
 
 	.mainvisual{
 		&__copy span:first-child{
-			transition-delay: 0.4s;
+			transition-delay: 0.8s;
 		}
 		&__copy span:last-child{
-			transition-delay: 0.5s;
+			transition-delay: 1s;
 		}
 
 		&__name {
-			transition-delay: 0.6s;
+			transition-delay: 1.2s;
 		}		
 		&__img img{
 			transition-delay: 0.8s;
